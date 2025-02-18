@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    display: inline-block;
+
+}
+
+.logo {
+    width: 600px;
+    height: auto;
+    margin-top: 246px;
+    margin-left: 121px;
+}
+
+header {
+    width: 87;
+    height: 20;
+    margin-top: 47px;
+    margin-left: 42px;
+}
+
+a {
+    padding: 21px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.88px;
+    text-align: center;
+    color: #17233D;
+    cursor: pointer;
+}
+
+a:hover {
+    font-size: 20px;
+    transition: 0.6s;
+    color: #1e2d4f
+}
+
+a:active {
+    color: #4b76da;
+    transition: 1ms;
+}
+
+.button-header {
+    width: 124px;
+    height: 51px;
+    margin-left: 21px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    border: 1px solid #4CB538;
+    background: #6FBF44;
+    border-radius: 7px;
+}
+
+.button-header:hover {
+    transition: 0.4s;
+    width: 126px;
+    height: 53px;
+    background: #559b2f;
+}
+
+.button-header:active {
+    transition: none;
+    background: #69d553;
+}
+
+section {
+    margin-left: 50px;
+    display: inline-block;
+    align-items: center;
+    text-align: justify;
+    width: 493px;
+    height: 99px;
+}
+
+h1 {
+    font-size: 62px;
+    line-height: 82px;
+    letter-spacing: 0.6px;
+    color: #161A49;
+    right: 164px;
+    width: 520px;
+    margin-bottom: 60px;
+}
+
+p {
+    width: 493px;
+    height: 99px;
+    color: #4B505A;
+}
+
+.button-section {
+    width: 150px;
+    height: 27px;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 1px;
+    color: #6FBF44;
+    border: none;
+    background: #FFFFFF;
+}
+
+.button-section:hover {
+    transition: 0.5s;
+    color: #7dd74c;
+    font-size: 19px;
+}
+
+.button-section:active {
+    color: #559b2f;
+
+
+}
