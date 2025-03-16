@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidor de Temperatura</title>
+
+</head>
+
+<body>
+
+    <p>Qual a sua temperatura</p>
+    <input type="number" class="sua-temperatura">
+    <button onclick="tempoIdeal()">Veja seu Resultado</button>
+    <br>
+    <p>Seu estado atual e:</p>
+    <p id="result">resultado</p>
+
+</body>
+<script>
+
+    const suaTemperatura = document.querySelector(".sua-temperatura");
+    const resultado = document.querySelector("#result");
+    const temperaturaIdeal = 36;
+
+    function tempoIdeal() {
+
+        const temperatura = parseFloat(suaTemperatura.value);
+
+        if (temperatura === temperaturaIdeal) {
+            resultado.textContent = "Sua temperatura está ideal!";
+        } else if (temperatura > temperaturaIdeal) {
+            resultado.textContent = "Você está com febre!";
+        } else {
+            resultado.textContent = "Você está com hipotermia!";
+        }
+
+
+
+        //resultado.innerHTML = suaTemperatura.value
+
+
+        // console.log(resultado)
+        // console.log(temperaturaIdeal)
+        // console.log(suaTemperatura.value)
+    }
+</script>
+
+</html>

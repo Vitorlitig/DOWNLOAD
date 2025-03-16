@@ -90,3 +90,45 @@ button:hover {
 button:active {
     opacity: 0.8;
 }
+
+.caixa-de-resultados {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 30%;
+    left: -1000px;
+    padding: 20px;
+    border: 5px solid #f70000;
+    border-radius:5px;
+    background: #ffffff;
+    color: #404040;
+    transition: left 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+
+}
+
+.paragrafo, .paragrafo-result{
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.paragrafo {
+    margin-top: 10px;
+}
+
+.paragrafo-result {
+    font-size: 80px;
+    margin-top: 2px;
+}
+
+
+.mascara-form{
+    visibility: hidden;
+    position: fixed;
+    top: -0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(0,0,0,0.5538194444444444) 39%, rgba(0,0,0,0.7690972222222222) 77%);
+}
