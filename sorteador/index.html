@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
 </head>
+
+<div onclick="clickOnMasc()" class="mascara-form"></div>
+
 <body>
     <main>
         <img src="./img/sort 1.png">
@@ -22,6 +25,12 @@
     </section>
 
     <button onclick="generateNumber()" >Sortear</button>
+
+    <div class="caixa-de-resultados">
+        <p class="paragrafo">parabens o sorteado foi:</p>
+
+        <p class="paragrafo-result" id="paragrafo-result">oi</p>
+    </div>
     
 </body>
 <script src="./script.js"></script>
