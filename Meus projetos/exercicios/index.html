@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gidole&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <title>Jogo da Memória</title>
+    <style>
+        body {
+            font-family: "Winky Sans", sans-serif; 
+            text-align: center;
+            background: url(https://wallpapers.com/images/high/underwater-aquarium-scene-jb12wxpzjpqsp8ns.webp);
+        }
+
+        .board {
+             display: grid;
+              grid-template-columns:repeat(4, 100px); 
+              gap: 10px; justify-content: center;
+             }
+
+        .card { 
+             width: 100px;
+             height: 100px; 
+             background: #438dca; 
+             display: flex; 
+             align-items: center; 
+             justify-content: center;
+             font-size: 24px;
+             cursor: pointer;
+            border-radius: 10px; }
+
+        .hidden { 
+             background: #18228e;
+             color: transparent; 
+             cursor: pointer;
+             border-radius: 10px;
+            }
+
+        .botão {
+            width: 80px;
+            margin-top: 30px;
+            background: #d8d644;
+            border:0.5px solid ;
+            border-radius: 50px;
+        }
+
+        .botão:hover {
+            opacity: 0.8;
+        }
+
+        .botão:active {
+            color:#40ba85;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Jogo da Memória</h1>
+    <p>Tempo: <span id="timer">0</span> segundos</p>
+    <div class="board" id="board"></div>
+    <button class="botão" onclick="startGame()">Reiniciar</button>
+    
+    <script>
+        const icons = ['🍎', '🍌', '🍒', '🍇', '🍉', '🍓', '🥑', '🍍'];
+        let cards = [...icons, ...icons];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let timer = 0, interval;
+        let gameStarted = false;
+
+        function shuffle(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function startGame() {
+            clearInterval(interval);
+            timer = 0;
+            document.getElementById('timer').textContent = timer;
+            gameStarted = false;
+            matchedPairs = 0;
+            cards = shuffle(cards);
+            const board = document.getElementById('board');
+            board.innerHTML = '';
+            cards.forEach((icon, index) => {
+                const card = document.createElement('div');
+                card.classList.add('card', 'hidden');
+                card.dataset.icon = icon;
+                card.dataset.index = index;
+                card.addEventListener('click', flipCard);
+                board.appendChild(card);
+            });
+        }
+
+        function flipCard() {
+            if (!gameStarted) {
+                gameStarted = true;
+                interval = setInterval(() => {
+                    timer++;
+                    document.getElementById('timer').textContent = timer;
+                }, 1000);
+            }
+            
+            if (flippedCards.length < 2 && this.classList.contains('hidden')) {
+                this.classList.remove('hidden');
+                this.textContent = this.dataset.icon;
+                flippedCards.push(this);
+            }
+
+            if (flippedCards.length === 2) {
+                setTimeout(checkMatch, 500);
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            if (card1.dataset.icon === card2.dataset.icon) {
+                matchedPairs++;
+                if (matchedPairs === icons.length) {
+                    clearInterval(interval);
+                    alert(`Parabéns! Você venceu em ${timer} segundos!`);
+                }
+            } else {
+                card1.classList.add('hidden');
+                card1.textContent = '';
+                card2.classList.add('hidden');
+                card2.textContent = '';
+            }
+            flippedCards = [];
+        }
+
+        startGame();
+    </script>
+</body>
+</html>
